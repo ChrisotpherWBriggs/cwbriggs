@@ -11,6 +11,7 @@ gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'
 gem 'carrierwave'
 gem 'nodejs-rails'
+gem 'font-awesome-rails'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
