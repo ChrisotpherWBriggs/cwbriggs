@@ -1,0 +1,24 @@
+<% obj.each do |news| %>
+<div class="row">
+  <div class="col-xs-8 col-xs-offset-2">
+    <div class="well">
+      <div class="article-title">
+        <h3><%= link_to news.title, news_path(news), class: "type" %></h3>
+      </div>
+      <div>
+        <%= truncate(news.body, length: 50) %>
+      </div>
+
+        <div>
+            <%= link_to "Edit This Article", edit_news_path(news), class: "btn btn-xs btn-danger" %> 
+            <%= link_to "Delete Article", news_path(news), method: :delete, 
+                                                        data: {confirm: "Are your sure you want to delte?"}, 
+                                                        class: "btn btn-xs btn-danger" %>
+          
+          </div>
+        </div>
+      
+    </div>
+  </div>
+  
+<% end %>

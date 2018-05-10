@@ -1,0 +1,22 @@
+<h2 align="center" class="type">
+Title: <%= @news.title %>  
+</h2>
+<div class="well col-xs-8 col-xs-offset-2">
+  <h4>
+    <strong>Body</strong>
+  </h4>
+    <hr>
+    <div>
+      <p class="body"><%= simple_format(@news.body) %></p>
+  </div>
+
+
+  <div>
+  
+  <%= link_to "Edit This Article", edit_news_path(@news), class: "btn btn-xs btn-danger" %> 
+  <%= link_to "Delete Article", news_path(@news), method: :delete, 
+                                                        data: {confirm: "Are your sure you want to delete?"}, 
+                                                        class: "btn btn-xs btn-danger" %>
+    <%= link_to "News Main", news_index_path, class: "btn btn-xs btn-danger" %>
+    </div>
+</div>

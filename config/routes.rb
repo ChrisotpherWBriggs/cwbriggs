@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  resources :news
   resources :categories
   resources :articles
   root 'welcome#index'
+  get 'about', to: 'welcome#about', as: 'about'
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+ 
 end

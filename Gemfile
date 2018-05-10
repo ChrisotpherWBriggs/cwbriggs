@@ -13,6 +13,7 @@ gem 'carrierwave'
 gem 'nodejs-rails'
 gem 'font-awesome-rails'
 gem 'nodejs-rails'
+gem 'trix'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

@@ -1,13 +1,13 @@
-<%= form_for @article, :html => { :class => "form-horizontal article" } do |f| %>
+<%= form_for @news, :html => { :class => "form-horizontal news" } do |f| %>
 
-  <% if @article.errors.any? %>
+  <% if @news.errors.any? %>
     <div id="error_expl" class="panel panel-danger">
       <div class="panel-heading">
-        <h3 class="panel-title"><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h3>
+        <h3 class="panel-title"><%= pluralize(@news.errors.count, "error") %> prohibited this news from being saved:</h3>
       </div>
       <div class="panel-body">
         <ul>
-        <% @article.errors.full_messages.each do |msg| %>
+        <% @news.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
         </ul>
@@ -15,7 +15,7 @@
     </div>
   <% end %>
 
-  <div class="form-group">
+    <div class="form-group">
     <%= f.label :title, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
       <%= f.text_field :title, :class => 'form-control' %>
@@ -30,26 +30,13 @@
     <%=f.error_span(:body) %>
   </div>
 
-  <hr>
-    <div class="form-group">
-      <div class="row">
-        <div class="col-sm-offset-2 col-sm-8" style="padding-bottom: 10px;">
-
-          <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
-            <% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text} %>
-          <% end %>  
-        </div>
-      </div>
-   </div>
 
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-10">
       <%= f.submit nil, :class => 'btn btn-primary' %>
       <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                articles_path, :class => 'btn btn-default' %>
+                news_index_path, :class => 'btn btn-default' %>
     </div>
   </div>
 
 <% end %>
-
-
