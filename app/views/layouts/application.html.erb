@@ -23,9 +23,11 @@
     <![endif]-->
   </head>
   <body>
-
+  <div align="center">
+    <%= image_tag "header.png" %>
+  </div>
     <div class="navbar navbar-default navbar-static-top" style="background: linear-gradient(to right, #fbae30, #e87b17);">
-    <%= link_to "C. W. Briggs", root_path, class: "navbar-brand" %>
+    <%= link_to "C. W. Briggs", root_path, class: "navbar-brand head", style: "color: #562400;" %>
       <div class="container">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
           <span class="icon-bar"></span>
@@ -35,33 +37,30 @@
         
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
-            <li><%= link_to "Stories", "/path1", class: "type" %></li>
-            <li><%= link_to "Rants", "/path2", class: "type"  %></li>
-            <li><%= link_to "About C. W. Briggs", "/path3", class: "type"  %></li>
+
+          <li class="dropdown">
+          <a href="#" class="dropdown-toggle head" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: #562400;">Readings<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            
+            <% Category.all.each do |category| %>
+              <li> <%= link_to "#{category.name}", category_path(category), class: "body" %></li>
+            <% end %>
+            </ul>
+
+
+            <li><%= link_to "News", "/path1", class: "head", style: "color: #562400;" %></li>
+            <li><%= link_to "About C. W. Briggs", "/path3", class: "head", style: "color: #562400;" %></li>
           </ul>
         </div>
       </div>
     </div>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-9">
-          <%= bootstrap_flash %>
-          <%= yield %>
-        </div>
-        <div class="col-lg-3">
-          <div class="well sidebar-nav">
-            <div align="center">
-              <%= image_tag "pic.jpg", size: "150x232" %>
-            </div>
-          </div><!--/.well -->
-        </div><!--/span-->
-      </div><!--/row-->
-  
-    </div> <!-- /container -->
+      <%= bootstrap_flash %>
+      <%= yield %>
+
      <div class="row" style="position:fixed; bottom: 5px; width: 100%; background: linear-gradient(to right, #e87b17, #fbae30);">
       <div align="center">
-       <h5 style="color: white;">&copy; C. W. Briggs, 2018</h5>
+       <h5 class="footer">&copy; C. W. Briggs, 2018</h5>
       </div>
     </div> 
   
